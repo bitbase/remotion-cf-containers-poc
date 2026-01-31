@@ -1,0 +1,28 @@
+name = "remotion-renderer-poc"
+compatibility_date = "2025-07-03"
+compatibility_flags = ["nodejs_compat"]
+main = "src/container.ts"
+
+[vars]
+R2_BUCKET_NAME = "remotion-renders-poc"
+
+[[r2_buckets]]
+binding = "R2_BUCKET"
+bucket_name = "remotion-renders-poc"
+
+[[containers]]
+class_name = "RemotionContainer"
+image = "./Dockerfile"
+max_instances = 3
+instance_type = "standard-1"
+
+[[durable_objects.bindings]]
+name = "REMOTION_CONTAINER"
+class_name = "RemotionContainer"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["RemotionContainer"]
+
+[observability]
+enabled = true

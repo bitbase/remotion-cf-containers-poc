@@ -1,0 +1,8 @@
+node_modules/
+dist/
+build/
+.svelte-kit/
+.wrangler/
+.claude-trace/
+bun.lock
+*.mp4
